@@ -21,6 +21,8 @@ jobs:
   lint:
     name: Linter
     runs-on: ubuntu-latest
+    env:
+      VITE_APP_NAME: WorkflowTestApp
     steps:
       - name: Checkout
         uses: actions/checkout@v4
