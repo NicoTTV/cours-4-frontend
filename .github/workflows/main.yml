@@ -22,8 +22,8 @@ jobs:
     name: Echo Hello World
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
+      - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
       - run : echo "Hello World"
