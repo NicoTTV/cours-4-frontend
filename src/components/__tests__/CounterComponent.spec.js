@@ -1,24 +1,23 @@
-import { describe, it, expect, vi } from 'vitest'
+import {describe, expect, it, vi} from 'vitest'
 
-import { mount } from '@vue/test-utils'
-import { createTestingPinia } from '@pinia/testing'
+import {mount} from '@vue/test-utils'
+import {createTestingPinia} from '@pinia/testing'
 import Counter from '../CounterComponent.vue'
-import { useCounterStore } from '@/stores/counter'
+import {useCounterStore} from '@/stores/counter'
 
 function mountCounter(x = 0) {
-  const wrapper = mount(Counter, {
+  return mount(Counter, {
     global: {
       plugins: [
         createTestingPinia({
           createSpy: vi.fn,
           initialState: {
-            counter: { count: x }
+            counter: {count: x}
           }
         })
       ]
     }
   })
-  return wrapper
 }
 
 describe('Counter', () => {
@@ -34,8 +33,8 @@ describe('Counter', () => {
       expect(counterStore.increment).toHaveBeenCalledTimes(1)
     })
     it('decrements counter', async () => {
-      const wrapper = mountCounter(50)
-      const counterStore = useCounterStore()
+      mountCounter(50)
+      useCounterStore()
     })
   })
 })
