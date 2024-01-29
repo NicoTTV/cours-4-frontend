@@ -18,8 +18,8 @@ permissions:
   id-token: write
 
 jobs:
-  hello:
-    name: Echo Hello World
+  lint:
+    name: Linter
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -30,3 +30,6 @@ jobs:
 
       - run : echo "Running"
       - run : npm ci
+
+      - name: Lint
+        run: npm run lint
